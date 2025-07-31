@@ -49,8 +49,8 @@ Create a `.env` file:
 
 ```env
 BASE_URL=https://thinking-tester-contact-list.herokuapp.com
-EMAIL=your_email@test.com
-PASSWORD=your_password
+USER_EMAIL=exampletest@gmail.com
+USER_PASSWORD=password
 ```
 
 ---
