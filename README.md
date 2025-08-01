@@ -17,7 +17,7 @@ This project automates end-to-end (UI) and API testing of the [Thinking Tester C
 - [Playwright](https://playwright.dev/)
 - JavaScript (Node.js)
 - dotenv (env configs)
-- Postman (for manual API tests)
+- Postman (API tests)
 
 ---
 
@@ -39,10 +39,9 @@ This project automates end-to-end (UI) and API testing of the [Thinking Tester C
 ## 📦 Setup
 
 ```bash
-git clone <repo-url>
-cd contact-list-playwright
+git clone https://github.com/mairajali1994/contact-list-app-automation
+cd contact-list-app-automation
 npm install
-npx playwright install
 ```
 
 Create a `.env` file:
@@ -71,6 +70,10 @@ npx playwright test tests/api
 npx playwright show-report
 ```
 
+## 🔁 CI/CD with GitHub Actions
+
+This project runs tests automatically on every push/pull request via GitHub Actions.
+The report is uploaded as an artifact after each run.
 
 ## 🧾 Author & License
 
