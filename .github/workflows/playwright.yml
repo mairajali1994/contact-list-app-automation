@@ -1,0 +1,35 @@
+name: Playwright Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v3
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '22'
+
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      - name: 📥 Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: 📁 Setup .env file
+        run: |
+          echo "USER_EMAIL=${{ secrets.USER_EMAIL }}" >> .env
+          echo "USER_PASSWORD=${{ secrets.USER_PASSWORD }}" >> .env
+          echo "BASE_URL=https://thinking-tester-contact-list.herokuapp.com" >> .env
+
+      - name: ▶️ Run Playwright tests
+        run: npx playwright test
